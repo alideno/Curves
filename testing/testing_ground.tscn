@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bpecy6cebb3tm"]
+[gd_scene format=3 uid="uid://pw5tisu3f4j3"]
 
 [ext_resource type="Script" uid="uid://ht4rd8u38mwt" path="res://testing/testing_ground.gd" id="1_71d8t"]
 [ext_resource type="PackedScene" uid="uid://cqee5c31uibbg" path="res://cubic_bezier_curve/cubic_bezier_curve.tscn" id="1_q4otm"]

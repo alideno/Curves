@@ -18,6 +18,9 @@ extends Node2D
 @onready var collision_shape : CollisionPolygon2D = $CollisionPolygon2D
 @onready var mesh_instance : MeshInstance2D = $MeshInstance2D
 
+@export_group("Texture")
+@export var mesh_texture: Texture2D
+
 var points: Array # List of the control point coordinates
 var control_points: Array
 
@@ -63,8 +66,8 @@ func interpolate(step: float) -> void:
 		temp_last = p
 	
 	var tiling_factor : float = 1.0
-	if mesh_instance.texture:
-		var tex_size = mesh_instance.texture.get_size()
+	if mesh_texture:
+		var tex_size = mesh_texture.get_size()
 		var aspect_ratio = tex_size.x / tex_size.y
 		tiling_factor = 1.0 / (width * aspect_ratio)
 
@@ -156,6 +159,7 @@ func create_mesh(vertices: PackedVector2Array, uvs: PackedVector2Array):
 	
 	arr_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLE_STRIP, arrays)
 	mesh_instance.mesh = arr_mesh
+	mesh_instance.texture = mesh_texture
 
 func deg_angle(first: Vector2,second: Vector2) -> float:
 	return rad_to_deg((first-second).angle())
